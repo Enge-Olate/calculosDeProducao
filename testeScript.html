@@ -2,32 +2,99 @@
 	<html lang = "pt-br">
 		<head>
 			<meta charset = "utf-8">
+			<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
 				<title>Teste com Script</title>
 		</head>
 			<body>
 				<h1>Cálculos de Produção Diária</h1>
-					<p>Informe a quantidade de peças:<input id = "numero"></p>
+					<p>Informe a meta:<input id = "numero"></p>
 						<p>Informe o total de peças produzidas:<input id = "produzido"></p>
 							<p>Informe a quantidade de refugos:<input id = "refugo"></p>
-						<p>Informe a quantidade de retrabalho:<input id = "retrabalho"></p>
-						<button type = "button" onclick = "teste()">calcule</button>
-						<table>							
-								<tr><td id = "tabela"></td><td id = "repeticao"></td></tr>
+								<p>Informe a quantidade de retrabalho:<input id = "retrabalho"></p>
+							<button type = "button" onclick = "teste()">calcule</button><br>
+						<div style = "display: -webkit-inline-box;">
+						<table style = "text-align : center;">
+							<td>Meta    /</td>
+							<td>M. Acumulada</td>								
+								<tr>
+									<td id = "tabela">0</td>
+									<td id = "repeticao">0</td>
+								</tr>
 															
-										<tr><td id = "repeticao1"></td><td id = "soma1"></td></tr>
+										<tr>
+											<td id = "repeticao1">0</td>
+											<td id = "soma1">0</td>
+										</tr>
 
-											<tr><td id = "repeticao2"></td><td id = "soma2"></td></tr>
+											<tr>
+												<td id = "repeticao2">0</td>
+												<td id = "soma2">0</td>
+											</tr>
 
-													<tr><td id = "repeticao3"></td><td id = "soma3"></td></tr>
+													<tr>
+														<td id = "repeticao3">0</td>
+														<td id = "soma3">0</td>
+													</tr>
 
-												<tr><td id = "repeticao4"></td><td id = "soma4"></td></tr>
+												<tr>
+													<td id = "repeticao4">0</td>
+													<td id = "soma4">0</td>
+												</tr>
 
-											<tr><td id = "repeticao5"></td><td id = "soma5"></td></tr>				
+											<tr>
+												<td id = "repeticao5">0</td>
+												<td id = "soma5">0</td>
+											</tr>				
 
-										<tr><td id = "repeticao6"></td><td id = "soma6"></td></tr>
+										<tr>
+											<td id = "repeticao6">0</td>
+											<td id = "soma6">0</td>
+										</tr>
 
-								<tr><td id = "repeticao7"></td><td id = "soma7"></td></tr>
+								<tr>
+									<td id = "repeticao7">0</td>
+									<td id = "soma7">0</td>
+								</tr>
 						</table>
+						<hr>
+							
+							<table style = "text-align : center;">
+								
+								<tr>
+									<td>Atual /</td>
+									<td>Acumulado</td>
+								</tr>
+								
+								<tr>
+									<td id = "feito">0</td>
+									<td id = "feito1">0</td>
+								</tr>
+									<tr>
+										<td id = "feito2">0</td>
+										<td id = "feito3">0</td>
+									</tr>
+										<tr>
+											<td id = "feito4">0</td>
+											<td id = "feito5">0</td>
+										</tr>
+											<tr>
+												<td id = "feito6">0</td>
+												<td id = "feito7">0</td>
+											</tr>
+										<tr>
+											<td id = "feito8">0</td>
+											<td id = "feito9">0</td>
+										</tr>
+									<tr>
+										<td id = "feito10">0</td>
+										<td id = "feito11">0</td>
+									</tr>
+								<tr>
+									<td id = "feito12">0</td>
+									<td id = "feito13">0</td>
+								</tr>																										
+							</table>	
+							</div>
 							
 								<p id = "performace"></p>	
 									<p id = "pecaRefugo"></p>	
@@ -39,47 +106,76 @@
 							var pecaProduzida = document.getElementById("produzido").value;
 							var totalRefugo = document.getElementById("refugo").value;
 							var totalRetrabalho = document.getElementById("retrabalho").value;
+								
+								/*Ponto de partida*/	
+								document.getElementById("feito").innerHTML = 0;
+								document.getElementById("feito1").innerHTML = (pecaProduzida / 7).toFixed(0);
 
+								/*Ponto de partida1*/	
+								document.getElementById("feito2").innerHTML =(pecaProduzida / 7).toFixed(0) ;	
+								document.getElementById("feito3").innerHTML =(pecaProduzida / 7 * 2 ).toFixed(0);	
+
+								/*Ponto de partida2*/	
+								document.getElementById("feito4").innerHTML =(pecaProduzida / 7).toFixed(0) ;	
+								document.getElementById("feito5").innerHTML =(pecaProduzida / 7 * 3 ).toFixed(0);	
+
+								/*Ponto de partida3*/	
+								document.getElementById("feito6").innerHTML =(pecaProduzida / 7).toFixed(0) ;	
+								document.getElementById("feito7").innerHTML =(pecaProduzida / 7 * 4).toFixed(0);	
+
+								/*Ponto de partida4*/	
+								document.getElementById("feito8").innerHTML =(pecaProduzida / 7).toFixed(0) ;	
+								document.getElementById("feito9").innerHTML =(pecaProduzida / 7 * 5 ).toFixed(0);	
+								
+								/*Ponto de partida5*/	
+								document.getElementById("feito10").innerHTML =(pecaProduzida / 7).toFixed(0);	
+								document.getElementById("feito11").innerHTML =(pecaProduzida / 7 * 6 ).toFixed(0);	
+								
+								/*Ponto de partida6*/	
+								document.getElementById("feito12").innerHTML =(pecaProduzida / 7).toFixed(0);	
+								document.getElementById("feito13").innerHTML =(pecaProduzida / 7 *7 ).toFixed(0);	
+								
+								
 								/*Número informado*/
-								document.getElementById("tabela").innerHTML = pecas + " / ";
+								document.getElementById("tabela").innerHTML = pecas ;
 								document.getElementById("repeticao").innerHTML = pecas;
 
 								/*Número informado com a primeira soma*/
-								document.getElementById("repeticao1").innerHTML = pecas + " / ";
+								document.getElementById("repeticao1").innerHTML = pecas ;
 								document.getElementById("soma1").innerHTML =pecas * 2;
 
 								/*Número informado com a segunda soma*/
-								document.getElementById("repeticao2").innerHTML = pecas + " / ";
+								document.getElementById("repeticao2").innerHTML = pecas ;
 								document.getElementById("soma2").innerHTML =pecas * 3;
 
 								/*Número informado com a terceira soma*/
-								document.getElementById("repeticao3").innerHTML = pecas + " / ";
+								document.getElementById("repeticao3").innerHTML = pecas ;
 								document.getElementById("soma3").innerHTML =pecas * 4;
 
 						                  	/*Número informado com a quarta soma*/
-								document.getElementById("repeticao4").innerHTML = pecas + " / ";
+								document.getElementById("repeticao4").innerHTML = pecas ;
 								document.getElementById("soma4").innerHTML =pecas * 5;
 
 								/*Número informado com a quinta soma*/
-								document.getElementById("repeticao5").innerHTML = pecas + " / ";
+								document.getElementById("repeticao5").innerHTML = pecas  ;
 								document.getElementById("soma5").innerHTML =pecas * 6;
 					
 								/*Número informado com a sexta soma*/
-								document.getElementById("repeticao6").innerHTML = pecas + " / ";
+								document.getElementById("repeticao6").innerHTML = pecas ;
 								document.getElementById("soma6").innerHTML =pecas * 7;
 						
 								/*Número informado com a sétima soma*/
-								document.getElementById("repeticao7").innerHTML = pecas + " / ";
+								document.getElementById("repeticao7").innerHTML = pecas ;
 								document.getElementById("soma7").innerHTML =pecas * 8;
 									
 								/*Cálculando Performace*/
-								document.getElementById("performace").innerHTML ="Performace (a) = " +pecaProduzida / (pecas * 8) * 100+"%" ;
+								document.getElementById("performace").innerHTML ="Performace (a) = " +(pecaProduzida / (pecas * 8) * 100).toFixed(2)+"%" ;
 
 								/*Cálculo Refugo*/
-								document.getElementById("pecaRefugo").innerHTML ="Refugo(b) = " +totalRefugo / pecaProduzida *100+"%";								
+								document.getElementById("pecaRefugo").innerHTML ="Refugo(b) = " +(totalRefugo / pecaProduzida *100).toFixed(2)+"%";								
 								
 								/*Cálculo Retrabalho*/
-								document.getElementById("pecaRetrabalho").innerHTML = "Retrabalho(c) =" +totalRetrabalho / pecaProduzida *100+"%";
+								document.getElementById("pecaRetrabalho").innerHTML = "Retrabalho(c) =" +(totalRetrabalho / pecaProduzida *100).toFixed(2)+"%";
 								
 						}
 															
