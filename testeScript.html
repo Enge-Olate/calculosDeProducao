@@ -9,9 +9,15 @@
 				<h1>Cálculos de Produção Diária</h1>
 					<p>Informe a meta:<input id = "numero"></p>
 						<p>Informe o total de peças produzidas:<input id = "produzido"></p>
+						<p>Informe o tempo de produção:<input id = "tempo"></p>
 							<p>Informe a quantidade de refugos:<input id = "refugo"></p>
-								<p>Informe a quantidade de retrabalho:<input id = "retrabalho"></p>
+								<p>Informe a quantidade de retrabalho:<input id = "retrabalho"></p>						
+							<p>Se houve "Anomalia" informe aqui : <input id = "anomaliat2"></p> 
+							<p>Se houve "Avaria" informe aqui : <input id = "avariat2"></p> 
+							<p>Se houve "Setup" informe aqui : <input id = "setupt2"></p> 
 							<button type = "button" onclick = "teste()">calcule</button><br>
+
+
 						<div style = "display: -webkit-inline-box;">
 						<table style = "text-align : center;">
 							<td>Meta    /</td>
@@ -99,41 +105,52 @@
 								<p id = "performace"></p>	
 									<p id = "pecaRefugo"></p>	
 										<p id = "pecaRetrabalho"></p>
-													
+											<p id = "t2"></p>	
+												<p id = "tProducao"></p>
+											<p id = "anomalia"></p>						
+										<p id = "avaria"></p>
+									<p id = "setup" ></p>			
 					<script>
 						function teste(){
 							var pecas = document.getElementById("numero").value;	
+							var tempo = document.getElementById("tempo").value;
 							var pecaProduzida = document.getElementById("produzido").value;
 							var totalRefugo = document.getElementById("refugo").value;
 							var totalRetrabalho = document.getElementById("retrabalho").value;
-								
+							var ano = document.getElementById("anomaliat2").value;
+							var ava = document.getElementById("avariat2").value;
+							var setup = document.getElementById("setupt2").value;
+							const t = 499;
+							var x = 0;		
+							
+	
 								/*Ponto de partida*/	
 								document.getElementById("feito").innerHTML = 0;
-								document.getElementById("feito1").innerHTML = (pecaProduzida / 7).toFixed(0);
+								document.getElementById("feito1").innerHTML = (pecaProduzida / tempo).toFixed(0);
 
 								/*Ponto de partida1*/	
-								document.getElementById("feito2").innerHTML =(pecaProduzida / 7).toFixed(0) ;	
-								document.getElementById("feito3").innerHTML =(pecaProduzida / 7 * 2 ).toFixed(0);	
+								document.getElementById("feito2").innerHTML =(pecaProduzida / tempo).toFixed(0) ;	
+								document.getElementById("feito3").innerHTML =(pecaProduzida / tempo* 2 ).toFixed(1);	
 
 								/*Ponto de partida2*/	
-								document.getElementById("feito4").innerHTML =(pecaProduzida / 7).toFixed(0) ;	
-								document.getElementById("feito5").innerHTML =(pecaProduzida / 7 * 3 ).toFixed(0);	
+								document.getElementById("feito4").innerHTML =(pecaProduzida / tempo).toFixed(0) ;	
+								document.getElementById("feito5").innerHTML =(pecaProduzida / tempo * 3 ).toFixed(1);	
 
 								/*Ponto de partida3*/	
-								document.getElementById("feito6").innerHTML =(pecaProduzida / 7).toFixed(0) ;	
-								document.getElementById("feito7").innerHTML =(pecaProduzida / 7 * 4).toFixed(0);	
+								document.getElementById("feito6").innerHTML =(pecaProduzida / tempo).toFixed(0) ;	
+								document.getElementById("feito7").innerHTML =(pecaProduzida / tempo * 4).toFixed(1);	
 
 								/*Ponto de partida4*/	
-								document.getElementById("feito8").innerHTML =(pecaProduzida / 7).toFixed(0) ;	
-								document.getElementById("feito9").innerHTML =(pecaProduzida / 7 * 5 ).toFixed(0);	
+								document.getElementById("feito8").innerHTML =(pecaProduzida / tempo).toFixed(0) ;	
+								document.getElementById("feito9").innerHTML =(pecaProduzida /tempo* 5 ).toFixed(1);	
 								
 								/*Ponto de partida5*/	
-								document.getElementById("feito10").innerHTML =(pecaProduzida / 7).toFixed(0);	
-								document.getElementById("feito11").innerHTML =(pecaProduzida / 7 * 6 ).toFixed(0);	
+								document.getElementById("feito10").innerHTML =(pecaProduzida / tempo).toFixed(0);	
+								document.getElementById("feito11").innerHTML =(pecaProduzida / tempo * 6 ).toFixed(1);	
 								
 								/*Ponto de partida6*/	
-								document.getElementById("feito12").innerHTML =(pecaProduzida / 7).toFixed(0);	
-								document.getElementById("feito13").innerHTML =(pecaProduzida / 7 *7 ).toFixed(0);	
+								document.getElementById("feito12").innerHTML =(pecaProduzida /tempo).toFixed(0);	
+								document.getElementById("feito13").innerHTML =(pecaProduzida /tempo*7 ).toFixed(1);	
 								
 								
 								/*Número informado*/
@@ -169,13 +186,36 @@
 								document.getElementById("soma7").innerHTML =pecas * 8;
 									
 								/*Cálculando Performace*/
-								document.getElementById("performace").innerHTML ="Performace (a) = " +(pecaProduzida / (pecas * 8) * 100).toFixed(2)+"%" ;
+								document.getElementById("performace").innerHTML ="Performace = " +(pecaProduzida / (pecas * 8) * 100).toFixed(2)+"%" ;
 
 								/*Cálculo Refugo*/
+								if(totalRefugo > 0){
 								document.getElementById("pecaRefugo").innerHTML ="Refugo(b) = " +(totalRefugo / pecaProduzida *100).toFixed(2)+"%";								
-								
+								}
+
 								/*Cálculo Retrabalho*/
+								if(totalRetrabalho > 0){	
 								document.getElementById("pecaRetrabalho").innerHTML = "Retrabalho(c) =" +(totalRetrabalho / pecaProduzida *100).toFixed(2)+"%";
+								}
+
+								/*Parada programada*/
+								document.getElementById("t2").innerHTML = "Parada Programada(t2) = "+((60 /t)*100).toFixed(1) +"%";								
+
+								/*Tempo de produção*/
+								document.getElementById("tProducao").innerHTML = "Produção(t2) = "+(((x = t - 60 - ano - ava - setup) / t)*100).toFixed(1) +"%";		
+								
+								
+								/*Parada por anomalia, avaria ou setup*/
+								if(ano > 0){
+									document.getElementById("anomalia").innerHTML = "Parada por anomalia (t2)= " +((ano / t)*100).toFixed(1)+"%";
+								}
+								 if(ava > 0){
+									document.getElementById("avaria").innerHTML = "Parada por avaria(t2) = " +((ava / t)*100).toFixed(1)+"%";
+								}
+								 if(setup > 0){
+									document.getElementById("setup").innerHTML = "parada por setup(t2) = "+ ((setup / t)*100).toFixed(1)+"%";
+								}		
+							
 								
 						}
 															
