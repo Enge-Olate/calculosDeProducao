@@ -105,8 +105,8 @@
 								<p id = "performace"></p>	
 									<p id = "pecaRefugo"></p>	
 										<p id = "pecaRetrabalho"></p>
-											<p id = "t2"></p>	
 												<p id = "tProducao"></p>
+												<p id = "t2"></p>	
 											<p id = "anomalia"></p>						
 										<p id = "avaria"></p>
 									<p id = "setup" ></p>			
@@ -127,12 +127,13 @@
 								/*Ponto de partida*/
 								if(tempo >= 1){	
 								 	document.getElementById("feito").innerHTML = 0;
-									document.getElementById("feito1").innerHTML = (pecaProduzida / tempo).toFixed(0);
+									x = pecaProduzida / tempo;
+									document.getElementById("feito1").innerHTML = parseInt(x);
 								}
 								/*Ponto de partida1*/
 								if(tempo == 2 || tempo >= 3){		
 									document.getElementById("feito2").innerHTML =(pecaProduzida / tempo).toFixed(0) ;	
-									document.getElementById("feito3").innerHTML =((pecaProduzida / tempo)* 2 ).toFixed(1);	
+									document.getElementById("feito3").innerHTML = parseInt((pecaProduzida / tempo * 2 ));	
 								}else{
 									document.getElementById("feito2").innerHTML =0;	
 									document.getElementById("feito3").innerHTML =0;
@@ -140,7 +141,7 @@
 								/*Ponto de partida2*/
 								if(tempo == 3 || tempo >= 4){	
 									document.getElementById("feito4").innerHTML =(pecaProduzida / tempo).toFixed(0) ;	
-								  	document.getElementById("feito5").innerHTML =(pecaProduzida / tempo * 3 ).toFixed(1);	
+								  	document.getElementById("feito5").innerHTML =parseInt((pecaProduzida / tempo * 3 ));	
 								}else{
 									document.getElementById("feito4").innerHTML =0 ;	
 								  	document.getElementById("feito5").innerHTML =0;	
@@ -148,7 +149,7 @@
 								/*Ponto de partida3*/	
 								if(tempo == 4 || tempo >= 5){	
 									document.getElementById("feito6").innerHTML =(pecaProduzida / tempo).toFixed(0) ;	
-									document.getElementById("feito7").innerHTML =(pecaProduzida / tempo * 4 ).toFixed(1);	
+									document.getElementById("feito7").innerHTML =parseInt(((pecaProduzida / tempo) * 4 ));	
 								}else{
 									document.getElementById("feito6").innerHTML =0 ;	
 									document.getElementById("feito7").innerHTML =0;
@@ -156,7 +157,7 @@
 								/*Ponto de partida4*/
 								if(tempo == 5 || tempo >= 6){		
 									document.getElementById("feito8").innerHTML =(pecaProduzida / tempo).toFixed(0) ;	
-									document.getElementById("feito9").innerHTML =(pecaProduzida /tempo* 5).toFixed(1);	
+									document.getElementById("feito9").innerHTML =parseInt((pecaProduzida / tempo * 5 ));	
 								}else{
 									document.getElementById("feito8").innerHTML =0;	
 									document.getElementById("feito9").innerHTML =0;
@@ -164,7 +165,7 @@
 								/*Ponto de partida5*/
 								if(tempo == 6 || tempo >= 7){		
 									document.getElementById("feito10").innerHTML =(pecaProduzida / tempo).toFixed(0);	
-									document.getElementById("feito11").innerHTML =(pecaProduzida / tempo * 6 ).toFixed(1);	
+									document.getElementById("feito11").innerHTML =parseInt((pecaProduzida / tempo * 6));	
 								}else{
 									document.getElementById("feito10").innerHTML =0;	
 									document.getElementById("feito11").innerHTML =0;
@@ -172,14 +173,14 @@
 								/*Ponto de partida6*/
 								if(tempo == 7){	
 									document.getElementById("feito12").innerHTML =(pecaProduzida /tempo ).toFixed(0);	
-									document.getElementById("feito13").innerHTML =(pecaProduzida /tempo * 7 ).toFixed(1);	
+									document.getElementById("feito13").innerHTML =parseInt((pecaProduzida / tempo * 7 ));
 								}else{
 									document.getElementById("feito12").innerHTML =0;	
 									document.getElementById("feito13").innerHTML =0;
 								}
 								
 								/*Número informado*/
-								document.getElementById("tabela").innerHTML = pecas ;
+								document.getElementById("tabela").innerHTML = 0;
 								document.getElementById("repeticao").innerHTML = pecas;
 
 								/*Número informado com a primeira soma*/
@@ -211,7 +212,7 @@
 								document.getElementById("soma7").innerHTML =pecas * 8;
 									
 								/*Cálculando Performace*/
-								document.getElementById("performace").innerHTML ="Performace = " +(pecaProduzida / (pecas * 8) * 100).toFixed(2)+"%" ;
+								document.getElementById("performace").innerHTML ="Performace (a) = " +(pecaProduzida / (pecas * 8) * 100).toFixed(2)+"%" ;
 
 								/*Cálculo Refugo*/
 								if(totalRefugo > 0){
@@ -227,7 +228,7 @@
 								document.getElementById("t2").innerHTML = "Parada Programada(t2) = "+((60 /t)*100).toFixed(1) +"%";								
 
 								/*Tempo de produção*/
-								document.getElementById("tProducao").innerHTML = "Produção(t2) = "+(((x = t - 60 - ano - ava - setup) / t)*100).toFixed(1) +"%";		
+								document.getElementById("tProducao").innerHTML = "Produção(t2) = " + (x = t - 60 - ano - ava - setup) +  "/"  +(((x = t - 60 - ano - ava - setup) / t)*100).toFixed(1) +"%";		
 								
 								
 								/*Parada por anomalia, avaria ou setup*/
